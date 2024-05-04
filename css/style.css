@@ -1,0 +1,384 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --first-color: #116979;
+  --background: #000000c0;
+  --normal-padding: 20px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.wallpaper {
+  width: 100%;
+  height: 100dvh;
+  background-image: url("photo/wallpaper.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  position: fixed;
+  overflow: auto;
+}
+/* ........................................ */
+.start {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: 1s;
+  transform: translateY(-100%);
+}
+
+.start.show {
+  transform: translatey(0);
+}
+.start input.name {
+  width: 400px;
+  padding: var(--normal-padding);
+  background-color: #ffffff86;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 40px;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.start input.name:focus {
+  outline-color: var(--first-color);
+}
+.start > div:first-child {
+  position: relative;
+}
+.start .error {
+  background-color: #ff005b;
+  position: absolute;
+  padding: 10px;
+  top: -50px;
+  display: none;
+  border-radius: 20px;
+}
+.start .error::after {
+  content: "";
+  position: absolute;
+  border-width: 9px;
+  border-style: solid;
+  border-color: #ff005b transparent transparent transparent;
+  bottom: -17px;
+  left: 20%;
+}
+.start .radio {
+  background-color: rgba(231, 222, 222, 0.493);
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  border-radius: 50px;
+}
+.start .radio > div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  font-size: 15px;
+  align-items: center;
+}
+.start .radio input {
+  margin-bottom: 10px;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  color: #fff;
+}
+.start .radio input::after {
+  background-color: #fff;
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  border: 2px solid #fff;
+}
+.start .radio input:checked::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: var(--first-color);
+  position: absolute;
+  border-radius: 50%;
+  left: -1px;
+  top: -1px;
+}
+.start .submit {
+  margin-top: 30px;
+  padding: 15px 25px;
+  background-color: var(--first-color);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.start p.showresult {
+  margin-top: 30px;
+  color: #fff;
+  background-image: linear-gradient(to bottom right, var(--first-color), #fff);
+  padding: 20px 30px;
+  font-size: 20px;
+  text-transform: capitalize;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ........................................ */
+/* ........................................ */
+.wait {
+  width: 100%;
+  height: 100%;
+  background-color: #000000c0;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  display: none;
+}
+.wait p {
+  width: 200px;
+  height: 200px;
+  font-size: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px 0px #116979;
+  animation: shadow 1s infinite;
+}
+@keyframes shadow {
+  from {
+    box-shadow: 0px 0px 20px 0px #116979;
+  }
+  to {
+    box-shadow: 0px 0px 20px 20px #116979;
+  }
+}
+/* ........................................ */
+.container {
+  width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .gameInfo {
+  background-color: var(--background);
+  padding: var(--normal-padding);
+  text-align: center;
+  font-size: 50px;
+  text-transform: capitalize;
+  color: var(--first-color);
+  font-weight: bold;
+  margin-bottom: 60px;
+  box-shadow: 0px 0px 20px 0px;
+}
+.container .gameInfo .gamename {
+  background-image: linear-gradient(45deg, #f3ec78, #af4261);
+}
+.container .gameContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .gameContent .lvlInfo {
+  background-color: var(--background);
+  padding: var(--normal-padding);
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+.container .gameContent .lvlName,
+.container .gameContent .lvlSecond {
+  background-color: transparent;
+  color: var(--first-color);
+}
+.container .gameContent .theWord {
+  width: 100%;
+  text-align: center;
+  padding: var(--normal-padding);
+  margin: 20px auto;
+  background-color: #000000e5;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 50px;
+  color: #fff;
+  user-select: none;
+}
+.container .gameContent input {
+  width: 50%;
+  padding: var(--normal-padding);
+  background-color: var(--background);
+  border-radius: 50px;
+  border: none;
+  margin: 20px 0;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  transition: width 0.8s;
+  position: relative;
+}
+.container .gameContent input:focus {
+  width: 100%;
+}
+.container .gameContent .words {
+  background-color: var(--background);
+  padding: var(--normal-padding);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* transition: 1s; */
+}
+.container .gameContent .words p {
+  padding: var(--normal-padding);
+  background-color: var(--first-color);
+  color: #fff;
+  font-size: 20px;
+  border-radius: 50px;
+  margin: 5px;
+  user-select: none;
+}
+.container .gameContent .scoreInfo {
+  width: 100%;
+  background-color: var(--background);
+  margin: 20px 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--normal-padding);
+  border-radius: 50px;
+}
+/* ........................................................ */
+.gameover {
+  width: 100%;
+  height: 100%;
+  background-color: #000000f5;
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 1s;
+  transform: translateY(-100%);
+}
+.gameover.visible {
+  transform: translateY(0);
+}
+.gameover > p {
+  user-select: none;
+}
+.gameover > p:first-child {
+  color: #fff;
+  font-size: 50px;
+  text-transform: capitalize;
+}
+.gameover > p span:first-child {
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px 15px;
+  background-color: var(--first-color);
+}
+.gameover > p span:nth-child(2) {
+  color: #ffeb3b;
+}
+.gameover > p span:nth-child(3) {
+  color: #2196f3;
+}
+.gameover > p span:nth-child(4) {
+  color: #795548;
+}
+.gameover > p span:nth-child(5) {
+  margin: 0 15px;
+}
+.gameover > p span:nth-child(6) {
+  color: #9c27b0;
+}
+.gameover > p span:nth-child(7) {
+  color: #00bcd4;
+}
+.gameover > p span:nth-child(8) {
+  color: #ff9800;
+}
+.gameover > p span:nth-child(9) {
+  color: #56ff00;
+}
+.gamePlayers {
+  margin-top: 20px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid var(--first-color);
+  padding: 5px;
+}
+
+.gamePlayers .player {
+  background-color: var(--first-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--normal-padding);
+  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+}
+
+.gamePlayers .player p {
+  flex-basis: 25%;
+}
+.gamePlayers .player button {
+  background-color: #ffffff;
+  padding: 10px;
+  color: var(--first-color);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+}
+.gamePlayers .player:not(:last-child) {
+  margin-bottom: 10px;
+}
+.gameover .playagain {
+  padding: 4px;
+  background-color: transparent;
+  border: 1px solid var(--first-color);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+}
+.gameover .playagain p {
+  color: #fff;
+  background-color: var(--first-color);
+  padding: 20px 30px;
+  font-size: 20px;
+  text-transform: capitalize;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  user-select: none;
+}

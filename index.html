@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/celebrate.css" />
+    <link rel="icon" type="image/x-icon" href="css/photo/pageLogo.ico" />
+    <title>tyoing speed</title>
+  </head>
+  <body>
+    <div class="wallpaper">
+      <div class="start">
+        <div class="">
+          <input type="text" class="name" placeholder="Your name" />
+          <p class="error">please enter name</p>
+        </div>
+        <div class="radio">
+          <div>
+            <input type="radio" name="lvl" value="Easy" checked />
+            <label>Easy</label>
+          </div>
+          <div>
+            <input type="radio" name="lvl" value="Normal" />
+            <label>Normal</label>
+          </div>
+          <div>
+            <input type="radio" name="lvl" value="Hard" />
+            <label>Hard</label>
+          </div>
+        </div>
+        <p class="submit">Start</p>
+        <p class="showresult">show result</p>
+      </div>
+      <div class="wait"><p></p></div>
+      <div class="container">
+        <div class="gameInfo">
+          <div class="gameName">type master</div>
+        </div>
+        <div class="gameContent">
+          <div class="lvlInfo">
+            <p>
+              You Play In [_ <span class="lvlName"></span> _] You Have [_
+              <span class="lvlSecond"></span> _] seconds
+            </p>
+          </div>
+          <div class="theWord">
+            <p></p>
+          </div>
+          <input type="text" />
+          <div class="words"></div>
+          <div class="scoreInfo">
+            <p class="leftTime">You Have : <span>0</span> secound</p>
+            <p class="wrongTry">wrong Try : <span>0</span></p>
+            <p class="score">
+              <span>0</span> From <span class="total">0</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="gameover">
+        <p>
+          <span>g</span>
+          <span>a</span>
+          <span>m</span>
+          <span>e</span>
+          <span></span>
+          <span>o</span>
+          <span>v</span>
+          <span>e</span>
+          <span>r</span>
+        </p>
+        <div class="confetti">
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+        </div>
+        <div class="gamePlayers"></div>
+        <div class="playagain"><p>play again</p></div>
+      </div>
+    </div>
+    <audio src="sound/succes.mp3" class="success"></audio>
+    <audio src="sound/error-89206.mp3" class="wrong"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
